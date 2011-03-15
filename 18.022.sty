@@ -1,0 +1,105 @@
+%% 18.022.sty - definitions for 18.022
+%%
+%% Copyright (C) 2009, 2011 Benjamin Barenblat
+%%                          http://benjamin.barenblat.name/
+%%
+%% This document is licensed under the Creative Commons
+%% Attribution-NonCommercial-ShareAlike 3.0 United States License.
+%% For more information, see
+%% http://creativecommons.org/licenses/by-nc-sa/3.0/us/.
+
+%% Identification
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{18.022}[2011/03/14 Definitions for 18.022]
+
+%% Preliminary declarations
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{mathrsfs}
+\RequirePackage{amsbsy}
+
+%% Options
+
+%% Main package code
+% Redefine proof environment to make it fit better
+% \renewenvironment{proof}[1][\proofname]{\setlength{\parindent}{1em}\par
+%   \pushQED{\qed}%
+%   \normalfont \topsep6\p@\@plus6\p@\relax
+%   \trivlist
+%   \item[\hskip\labelsep
+%         \itshape
+%     #1\@addpunct{.}]\ignorespaces
+% }{%
+%   \popQED\endtrivlist\@endpefalse
+% }
+
+% Styling
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\gvec}[1]{\boldsymbol{#1}}
+\newcommand{\cvec}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\bra}{\begin{bmatrix}}
+\newcommand{\ket}{\end{bmatrix}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+\newcommand{\Epsilon}{\epsilon}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\implies}{\Rightarrow}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\iff}{\Leftrightarrow}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+% Abbreviations
+\renewcommand{\v}[1]{\vec{#1}}
+\newcommand{\cv}[1]{\cvec{#1}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\cross}{\times}
+\let\flux\dot
+\renewcommand{\dot}{\cdot}
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\0}{\vec{0}}
+\newcommand{\of}{\circ}
+\newcommand{\at}[1]{\Big\vert_{#1}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\grad}{\nabla}
+\renewcommand{\div}{\nabla\dot}
+\newcommand{\curl}{\nabla\cross}
+\newcommand{\laplacian}{\nabla^2}
+
+% \dd is the basic partial derivative command, for forms like
+%    n
+%   d y
+%   --- ,
+%     n
+%   dx
+% the nth derivative of y with respect to x.
+\newcommand{\dd}[3][]{\frac{\partial^{#1} #2}{\partial #3^{#1}}}
+\newcommand{\ddx}[1]{\dd{#1}{x}}
+\newcommand{\ddy}[1]{\dd{#1}{y}}
+\newcommand{\ddz}[1]{\dd{#1}{z}}
+
+% For mixed partials, we have \ddd.
+\newcommand{\ddd}[3][]{\frac{\partial^{#1} #2}{\partial #3}}
+\newcommand{\dddx}[1]{\dds{#1}{x}}
+\newcommand{\dddy}[1]{\dds{#1}{y}}
+\newcommand{\dddz}[1]{\dds{#1}{z}}
+
+% For mixed second partials, we have \dds.
+\newcommand{\dds}[2]{\ddd[2]{#1}{#2}}
+
+\newcommand{\xo}{x_0}
+\newcommand{\yo}{y_0}
+\newcommand{\zo}{z_0}
+
+% New stuff
+\DeclareMathOperator{\graph}{Graph}
+\DeclareMathOperator{\proj}{Proj}
+\DeclareMathOperator{\sgn}{sgn}
+
+% Define 18.022 stuff for pset.cls
+\def\@course{18.022}
+\def\@fullcourse{Multivariate and Vector Calculus}
+\def\@department{Department of Mathematics}
+\def\@school{Massachusetts Institute of Technology}
